@@ -15,6 +15,7 @@ phases:
     - npm install
     - echo Building the Docker image...
     - docker build -t $IMAGE_REPO_NAME .
+    - docker images # This command lists Docker images to verify successful image creation
     - docker tag $IMAGE_REPO_NAME:$CODEBUILD_RESOLVED_SOURCE_VERSION $AWS_ACCOUNT_ID.dkr.ecr.$AWS_DEFAULT_REGION.amazonaws.com/$IMAGE_REPO_NAME:$CODEBUILD_RESOLVED_SOURCE_VERSION
   post_build:
     commands:
